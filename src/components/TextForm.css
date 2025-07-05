@@ -1,0 +1,85 @@
+/* Container */
+.textform-container {
+  padding: 2rem 1rem;
+  background-color: #f8f9fa; /* Light gray */
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden; /* ✅ Avoid inner scrollbars */
+}
+
+/* Dark mode container */
+.textform-container.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+/* Heading */
+.textform-heading {
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.textform-container.dark .textform-heading {
+  color: #f1f1f1;
+}
+
+/* Textarea */
+.textform-textarea {
+  font-size: 1rem;
+  padding: 1rem;
+  resize: vertical;
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  max-height: 300px; /* ✅ Prevent vertical overflow */
+  overflow-y: auto;
+}
+
+.textform-container.dark .textform-textarea {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border: 1px solid #444;
+}
+
+/* Placeholder styling */
+.textform-textarea::placeholder {
+  color: #6c757d;
+  opacity: 1;
+}
+
+.textform-container.dark .textform-textarea::placeholder {
+  color: #cccccc;
+}
+
+/* Buttons container */
+.textform-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* ✅ Allow wrapping on smaller screens */
+  gap: 0.5rem;
+  overflow-x: auto; /* Optional: horizontal scroll if needed */
+  padding-top: 0.5rem;
+}
+
+/* Button spacing */
+.textform-buttons .btn {
+  transition: all 0.2s ease;
+  min-width: 100px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  height: auto;
+  flex: 1 1 auto;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Optional: media query for smaller screens */
+@media (max-width: 576px) {
+  .textform-buttons .btn {
+    min-width: 80px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+}

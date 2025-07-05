@@ -1,3 +1,44 @@
+# About
+
+📄 Project Overview – TextPlays
+TextPlays is a simple yet functional React-based text utility application developed to reinforce and revisit the fundamentals of React.js, including the concepts of Single Page Applications (SPA), props, and useState hooks.
+
+The application allows users to perform various text transformations interactively within a responsive UI that supports light and dark modes.
+
+✨ Features
+🔠 Convert text to Uppercase
+
+🔡 Convert text to Lowercase
+
+🔄 Reverse the entered text
+
+🔢 Count characters in the text
+
+❌ Clear the text area
+
+🌙 Dark mode and ☀️ Light mode toggle
+
+💡 Responsive and accessible design using Bootstrap
+
+🚀 Tech Stack
+React.js (Functional Components & Hooks)
+
+Bootstrap 5
+
+CSS3 (Dark mode theming and responsiveness)
+
+📚 Purpose
+The main goal of this project was to:
+
+Practice building a SPA with component-based architecture
+
+Revisit state management using useState
+
+Understand props usage and component reusability
+
+Apply conditional styling and mode switching (light/dark)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
