@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Navbar({ title = 'Set title here', about = 'Enter about here', darkMode, toggleDarkMode }) {
+export default function Navbar({ title = 'Set title here', about = 'Enter about here', darkMode, toggleDarkMode,logo}) {
   return (
     <nav
       className={`navbar navbar-expand-lg ${darkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-light'
         }`}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">{title}</a>
+        <img src={logo} alt="" />
+        <a className="navbar-brand mx-2" style={{ marginTop: '-5px',fontSize:'20px' }} href="/">{title}</a>
         <button
           className="navbar-toggler"
           type="button"

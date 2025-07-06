@@ -4,36 +4,36 @@ import './TextForm.css';
 
 export default function TextForm({ heading = 'Enter heading', textplaceholder = 'Enter text here', darkMode }) {
     const [txtarea, updateText] = useState('');
+    const [output, setOutput] = useState(''); // output shown in preview
 
     const handleOnChange = (event) => {
-        updateText(event.target.value);
+        const input = event.target.value;
+        updateText(input);
+        setOutput(input); // 👈 live update preview while typing
     };
 
     const ConvertUpper = () => {
-        updateText(txtarea.toUpperCase());
+        setOutput(txtarea.toUpperCase());
     };
 
     const ConvertLower = () => {
-        updateText(txtarea.toLowerCase());
+        setOutput(txtarea.toLowerCase());
     };
 
-    const CountChar = () => {
-        const c = txtarea.length;
-        c.toString();
-        updateText("Characters in "+ txtarea + "= " + c);
-        setTimeout(() => {
-            updateText('');
-        }, 8000);
+    const TrimTxt = () => {
+        const noSpaces = txtarea.replace(/\s+/g, '');
+        setOutput(noSpaces);
     };
 
     const ReverseTxt = () => {
         const reversed = txtarea.split('').reverse().join('');
-        updateText(reversed);
+        setOutput(reversed);
     };
 
     const ClearText = () => {
-        alert('The text area will be cleared');
+        alert('The text area and output will be cleared');
         updateText('');
+        setOutput('');
     };
 
     return (
@@ -49,22 +49,22 @@ export default function TextForm({ heading = 'Enter heading', textplaceholder = 
                                 value={txtarea}
                                 placeholder={textplaceholder}
                                 onChange={handleOnChange}
-                                rows="6"
+                                rows="2"
                             ></textarea>
                         </div>
 
                         <div className="textform-buttons d-flex flex-wrap gap-2">
-                            <button type="button" className="btn btn-outline-primary" onClick={ConvertUpper}>
+                            <button type="button" className="btn btn-outline-success" onClick={ConvertUpper}>
                                 Convert to UpperCase
                             </button>
-                            <button type="button" className="btn btn-outline-warning" onClick={ConvertLower}>
+                            <button type="button" className="btn btn-outline-success" onClick={ConvertLower}>
                                 Convert to LowerCase
                             </button>
                             <button type="button" className="btn btn-outline-success" onClick={ReverseTxt}>
                                 Reverse
                             </button>
-                            <button type="button" className="btn btn-outline-success" onClick={CountChar}>
-                                Count Characters
+                            <button type="button" className="btn btn-outline-primary" onClick={TrimTxt}>
+                                Trim whitespace
                             </button>
                             <button type="button" className="btn btn-outline-danger" onClick={ClearText}>
                                 Clear Textbox
@@ -73,6 +73,24 @@ export default function TextForm({ heading = 'Enter heading', textplaceholder = 
                     </div>
                 </div>
             </div>
+
+            {(output && output.trim()) && (
+                <div className={`${darkMode ? 'textform-container dark' : 'textform-container'} container row justify-content-center mx-0`}>
+                    <div className="className col-12 col-md-10 col-lg-8">
+                    <h1>Preview</h1>
+                    <textarea
+                        readOnly
+                        value={output}
+                        rows="2"
+                        className={`form-control mb-2 ${darkMode ? 'bg-dark text-light' : ''}`}
+                    ></textarea>
+                    <p>
+                        {`Total number of words = ${output.trim().split(/\s+/).length}`} <br />
+                        {`Total characters = ${output.length}`}
+                    </p>
+                </div>
+                </div>
+            )}
         </>
     );
 }

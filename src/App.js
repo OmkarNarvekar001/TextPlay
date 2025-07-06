@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import logo from './logo.svg'
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -20,15 +21,16 @@ function App() {
     <>
       <Navbar
         title="TextPlay"
-        about="About textPlay"
+        about="About TextPlay"
         darkMode={darkMode}
         toggleDarkMode={toggleDarkMode}
+        logo={logo}
       />
 
       <div className={darkMode ? 'app dark-mode' : 'app'}>
-        <div className="container">
+        <div className="container {darkMode ? 'app dark-mode' : 'app'">
           <TextForm
-            heading="Enter your text to analyze below"
+            heading="Enter your text to analyze here"
             textplaceholder="Type your text..."
             darkMode={darkMode}
           />
