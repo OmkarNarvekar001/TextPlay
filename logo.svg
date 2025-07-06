@@ -1,0 +1,5 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <rect width="32" height="32" rx="6" fill="#121212"/>
+  <text x="6" y="22" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#00E5FF">T</text>
+  <text x="16" y="22" font-family="Segoe UI, sans-serif" font-size="16" font-weight="bold" fill="#FFD700">P</text>
+</svg>
