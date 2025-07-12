@@ -8,9 +8,9 @@ export default function Alert({ alert }) {
                 role="alert"
                 style={{
                     position: 'fixed',
-                    top: '60px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
+                    top: '65px',
+                    right: '1px',
+                    transform: 'translateX(-5%)',
                     zIndex: 9999,
                     fontSize: '1rem',
                     minWidth: '200px',

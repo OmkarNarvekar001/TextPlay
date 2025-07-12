@@ -4,17 +4,17 @@ import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
+import About from './components/About';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [alert, setAlert] = useState(null);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  const toggleDarkMode = () => setDarkMode(!darkMode);
 
   const showAlert = (message, type) => {
-    setAlert({ msg: message, type: type });
+    setAlert({ msg: message, type });
     setTimeout(() => setAlert(null), 3000);
   };
 
@@ -23,26 +23,18 @@ function App() {
   }, [darkMode]);
 
   return (
-    <>
-      <Navbar
-        title="TextPlay"
-        about="About TextPlay"
-        darkMode={darkMode}
-        toggleDarkMode={toggleDarkMode}
-        logo={logo}
-      />
+    <Router>
+      <Navbar title="TextPlay" about="About" darkMode={darkMode} toggleDarkMode={toggleDarkMode} logo={logo} />
       <Alert alert={alert} />
-      <div className={darkMode ? 'app dark-mode' : 'app'} >
+      <div className={darkMode ? 'app dark-mode' : 'app'}>
         <div className="container">
-          <TextForm
-            heading="Enter your text to analyze here"
-            textplaceholder="Type your text..."
-            darkMode={darkMode}
-            alert={showAlert}
-          />
+          <Routes>
+            <Route path="/" element={<TextForm heading="Enter your text to analyze here" textplaceholder="Type your text..." darkMode={darkMode} alert={showAlert} />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
         </div>
       </div>
-    </>
+    </Router>
   );
 }
 
