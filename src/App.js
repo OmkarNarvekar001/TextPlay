@@ -1,18 +1,23 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
-import logo from './logo.svg'
+import Alert from './components/Alert';
+import React, { useState, useEffect } from 'react';
+import logo from './logo.svg';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
+  const [alert, setAlert] = useState(null);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
 
-  // 🔄 Update <body> class when darkMode changes
+  const showAlert = (message, type) => {
+    setAlert({ msg: message, type: type });
+    setTimeout(() => setAlert(null), 3000);
+  };
+
   useEffect(() => {
     document.body.className = darkMode ? 'dark-mode' : 'light-mode';
   }, [darkMode]);
@@ -26,13 +31,14 @@ function App() {
         toggleDarkMode={toggleDarkMode}
         logo={logo}
       />
-
-      <div className={darkMode ? 'app dark-mode' : 'app'}>
-        <div className="container {darkMode ? 'app dark-mode' : 'app'">
+      <Alert alert={alert} />
+      <div className={darkMode ? 'app dark-mode' : 'app'} >
+        <div className="container">
           <TextForm
             heading="Enter your text to analyze here"
             textplaceholder="Type your text..."
             darkMode={darkMode}
+            alert={showAlert}
           />
         </div>
       </div>
