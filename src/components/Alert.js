@@ -12,15 +12,16 @@ export default function Alert({ alert }) {
                     right: '1px',
                     transform: 'translateX(-5%)',
                     zIndex: 9999,
-                    fontSize: '1rem',
-                    minWidth: '200px',
-                    maxWidth: '400px',
-                    padding: '10px 16px',
-                    lineHeight: '1.4',
+                    fontSize: '0.90rem',
+                    // minWidth: '200px',
+                    // maxWidth: '400px',
+                    // padding: '100px 100px',
+                    lineHeight: '1',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+                    textAlign:'center'
                 }}
             >
-                {alert.msg}
+               <strong>{alert.msg}</strong> 
             </div>
         )
     );

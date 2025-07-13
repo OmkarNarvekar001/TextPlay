@@ -2,9 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export default function Navbar({ title = 'Set title here', about = 'Enter about here', darkMode, toggleDarkMode, logo }) {
-  return (
+export default function Navbar({ title = 'Set title here', about = 'Enter about here', darkMode, toggleDarkMode, logo}) {
+ return (
     <nav className={`navbar navbar-expand-lg ${darkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-light'}`}>
+      {/* <nav className="navbar navbar-expand-lg navbar-dark bg-dark"> */} 
       <div className="container-fluid">
         <img src={logo} alt="" />
         <span className="navbar-brand mx-2" style={{ marginTop: '-4px', fontSize: '19px' }}>
@@ -22,13 +23,17 @@ export default function Navbar({ title = 'Set title here', about = 'Enter about 
               <Link className="nav-link active" aria-current="page" to="/about">{about}</Link>
             </li>
           </ul>
-          <button
-            className={`btn btn-sm ${darkMode ? 'btn-light' : 'btn-dark'}`}
+          {/* <button
+            className={`btn btn-sm ${darkMode ? 'btn-light' : 'btn-dark'} `}
             onClick={toggleDarkMode}
             title="Toggle dark mode"
           >
             {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
-          </button>
+          </button> */}
+          <div className="form-check form-switch">
+            <input className="form-check-input" type="checkbox" role="switch" id="switchCheckDefault" onClick={toggleDarkMode}/>
+              <label className="form-check-label" for="switchCheckDefault">{darkMode ? '☀️' : '🌙'}</label>
+          </div>
         </div>
       </div>
     </nav>

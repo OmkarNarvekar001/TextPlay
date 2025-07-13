@@ -11,7 +11,11 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [alert, setAlert] = useState(null);
 
-  const toggleDarkMode = () => setDarkMode(!darkMode);
+  const toggleDarkMode = () => {
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    showAlert(newMode ? 'Dark mode enabled' : 'Light mode enabled', 'success');
+  };
 
   const showAlert = (message, type) => {
     setAlert({ msg: message, type });
