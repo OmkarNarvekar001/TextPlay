@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar({ title = 'Set title here', about = 'Enter about here', darkMode, toggleDarkMode, logo}) {
  return (
-    <nav className={`navbar navbar-expand-lg ${darkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-light'}`}>
+    <nav className={`navbar navbar-expand-lg ${darkMode ? 'navbar-dark bg-dark' : 'navbar-light bg-light'} sticky-top`} style={{
+    borderBottom: `1px solid black`
+  }}>
       {/* <nav className="navbar navbar-expand-lg navbar-dark bg-dark"> */} 
       <div className="container-fluid">
         <img src={logo} alt="" />

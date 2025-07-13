@@ -40,3 +40,12 @@ body.dark-mode {
 .app.light-mode {
   color: #000000;
 }
+
+.accordion-button::after {
+  transition: transform 0.2s ease-in-out;
+  filter: invert(0%);
+}
+
+.dark-mode .accordion-button::after {
+  filter: invert(100%);
+}

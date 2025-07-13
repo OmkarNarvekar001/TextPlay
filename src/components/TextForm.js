@@ -15,27 +15,27 @@ export default function TextForm({ heading = 'Enter heading', textplaceholder = 
     const ConvertUpper = () => {
         if (!txtarea.trim()) return alert('Text box is empty!', 'warning');
         setOutput(txtarea.toUpperCase());
-        alert('Converted to Uppercase', 'success');
+        alert('Converted to Uppercase!', 'success');
     };
 
     const ConvertLower = () => {
         if (!txtarea.trim()) return alert('Text box is empty!', 'warning');
         setOutput(txtarea.toLowerCase());
-        alert('Converted to Lowercase', 'success');
+        alert('Converted to Lowercase!', 'success');
     };
 
     const TrimTxt = () => {
         if (!txtarea.trim()) return alert('Text box is empty!', 'warning');
         const trimmed = txtarea.replace(/\s+/g, '');
         setOutput(trimmed);
-        alert('Whitespace removed', 'success');
+        alert('Whitespace removed!', 'success');
     };
 
     const ReverseTxt = () => {
         if (!txtarea.trim()) return alert('Text box is empty!', 'warning');
         const reversed = txtarea.split('').reverse().join('');
         setOutput(reversed);
-        alert('Text reversed', 'success');
+        alert('Text Reversed!', 'success');
     };
 
     const ClearText = () => {
@@ -51,8 +51,8 @@ export default function TextForm({ heading = 'Enter heading', textplaceholder = 
     const CopyTxt = () => {
         if (!output.trim()) return alert('Nothing to copy!', 'warning');
         navigator.clipboard.writeText(output)
-            .then(() => alert('Text copied to clipboard!', 'success'))
-            .catch(() => alert('Failed to copy text.', 'danger'));
+            .then(() => alert('Text copied to clipboard!', 'info'))
+            .catch(() => alert('Failed to copy text', 'danger'));
     };
 
     return (
@@ -108,5 +108,5 @@ export default function TextForm({ heading = 'Enter heading', textplaceholder = 
 TextForm.propTypes = {
     heading: PropTypes.string.isRequired,
     textplaceholder: PropTypes.string,
-    alert: PropTypes.func.isRequired, // ✅ required alert function
+    alert: PropTypes.func.isRequired
 };

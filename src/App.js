@@ -34,7 +34,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="/" element={<TextForm heading="Enter your text to analyze here" textplaceholder="Type your text..." darkMode={darkMode} alert={showAlert} />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About darkMode={darkMode}/>} />
           </Routes>
         </div>
       </div>
